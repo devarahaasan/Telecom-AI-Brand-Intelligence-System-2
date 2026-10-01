@@ -11,10 +11,9 @@ st.write("Real-Time Sentiment Analysis, Sarcasm Detection & RAG Resolution Engin
 
 @st.cache_resource
 def load_ai_models():
-    # Load the baseline RoBERTa directly since weights are loaded natively
-    model_name = "cardiffnlp/twitter-roberta-base-sentiment-latest"
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=4, ignore_mismatched_sizes=True)
+    model_path = "Devarahaasan/telecom-sarcasm-roberta"
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    model = AutoModelForSequenceClassification.from_pretrained(model_path)
     embed_model = SentenceTransformer("all-MiniLM-L6-v2")
     return tokenizer, model, embed_model
 
